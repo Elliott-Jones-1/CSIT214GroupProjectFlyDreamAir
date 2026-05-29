@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: sans-serif; background: #fff; padding: 20px; max-width: 400px; margin: auto; }
+        .back-btn { font-size: 24px; cursor: pointer; text-decoration: none; color: #000; display: inline-block; margin-bottom: 10px; }
+        .summary-box { background: #f5f5ff; padding: 15px; border-radius: 15px; margin-bottom: 20px; }
+        .row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+        .btn-pay { width: 100%; padding: 15px; background: #5856D6; color: white; border: none; border-radius: 12px; margin-top: 20px; font-weight: bold; }
+        input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+    <a href="javascript:history.back()" class="back-btn">&larr;</a>
+    <h2>Payment</h2>
+    <p style="color: #666; margin-top: -10px;">Complete your booking payment</p>
+
+    <div class="summary-box">
+        <p style="font-weight: bold; margin-top: 0;">Order Summary</p>
+        <div class="row">
+            <span>{{ p.name }}</span>
+            <span style="font-weight: bold;">$45.00</span>
+        </div>
+        <div class="row" style="color: #666;">
+            <span>1 Guest</span>
+            <span>x 1</span>
+        </div>
+        <hr>
+        <div class="row" style="font-weight: bold; color: #5856D6;">
+            <span>Total</span>
+            <span>$45.00</span>
+        </div>
+    </div>
+
+    <p style="font-weight: bold;">Payment Method</p>
+    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+        <div style="flex: 1; padding: 10px; border: 2px solid #5856D6; border-radius: 8px; text-align: center;">Card</div>
+        <div style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; text-align: center;">PayPal</div>
+        <div style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; text-align: center;">Wallet</div>
+    </div>
+
+    <p style="font-weight: bold; font-size: 14px;">Card Number</p>
+    <input type="text" placeholder="1234 5678 9900">
+
+    <div style="display: flex; gap: 10px; margin-top: 15px;">
+        <div style="flex: 1;">
+            <p style="font-weight: bold; font-size: 14px;">Expiry Date</p>
+            <input type="text" placeholder="MM / YY">
+        </div>
+        <div style="flex: 1;">
+            <p style="font-weight: bold; font-size: 14px;">CVV</p>
+            <input type="text" placeholder="***">
+        </div>
+    </div>
+
+    <button class="btn-pay">Pay $45.00</button>
+</body>
+</html>

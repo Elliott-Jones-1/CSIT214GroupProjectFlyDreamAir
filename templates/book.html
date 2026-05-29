@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container" style="padding: 24px; max-width: 420px; margin: 0 auto; background: #fff;">
+    <!-- 返回 + 标题 -->
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+        <a href="/" style="font-size: 20px; text-decoration: none; color: #000;">←</a>
+        <h1 style="font-size: 24px; margin: 0;">Book Your Lounge</h1>
+    </div>
+    <p style="color: #666; margin: 0 0 24px 32px;">Select date, time and guests.</p>
+
+    <!-- 休息室信息卡片（紫色淡背景） -->
+    <div style="background: #F5F3FF; border-radius: 16px; padding: 16px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <h3 style="margin:0 0 4px 0; font-size:16px;">{{ lounge.name }}</h3>
+            <p style="margin:0; color:#666; font-size:14px;">{{ lounge.code }}</p>
+        </div>
+        <p style="font-size: 18px; font-weight: 600; color: #7B61FF; margin:0;">${{ lounge.price }}.00</p>
+    </div>
+
+    <!-- 日期选择 -->
+    <div style="margin-bottom: 16px;">
+        <p style="font-weight: 600; margin: 0 0 8px 0;">Select Date</p>
+        <select id="dateSelect" style="width:100%; padding:14px; border-radius:12px; border:none; background:#F5F3FF; font-size:15px;">
+            <option>May 20, 2026</option>
+            <option>May 21, 2026</option>
+            <option>May 22, 2026</option>
+        </select>
+    </div>
+
+    <!-- 时间选择 -->
+    <div style="margin-bottom: 16px;">
+        <p style="font-weight: 600; margin: 0 0 8px 0;">Select Time</p>
+        <select id="timeSelect" style="width:100%; padding:14px; border-radius:12px; border:none; background:#F5F3FF; font-size:15px;">
+            <option>10:00 AM - 12:00 PM</option>
+            <option>12:00 PM - 2:00 PM</option>
+            <option>2:00 PM - 4:00 PM</option>
+        </select>
+    </div>
+
+    <!-- 人数选择 -->
+    <div style="margin-bottom: 24px;">
+        <p style="font-weight: 600; margin: 0 0 8px 0;">Number of Guests</p>
+        <select id="guestSelect" style="width:100%; padding:14px; border-radius:12px; border:none; background:#F5F3FF; font-size:15px;">
+            <option>1 Guest</option>
+            <option>2 Guests</option>
+            <option>3 Guests</option>
+        </select>
+    </div>
+
+    <!-- 总价 -->
+    <div style="display: flex; justify-content: space-between; margin-bottom: 32px;">
+        <div>
+            <p style="color:#666; margin:0;">Total Price</p>
+            <p style="color:#666; margin:4px 0 0;">1 Guest x ${{ lounge.price }}.00</p>
+        </div>
+        <p style="font-size: 20px; font-weight: 600; color: #7B61FF; margin:0;">${{ lounge.price }}.00</p>
+    </div>
+
+    <!-- 按钮 -->
+    <button onclick="goToPayment()" style="width:100%; background:#7B61FF; color:#fff; border:none; padding:16px; border-radius:12px; font-size:16px; font-weight:600; margin-bottom:16px; cursor:pointer;">
+        Book Now
+    </button>
+    <p onclick="location.href='/'" style="text-align:center; color:#7B61FF; cursor:pointer; font-weight:500;">Cancel</p>
+</div>
+
+<script>
+function goToPayment(){
+    const name = "{{ lounge.name }}";
+    const airport = "{{ lounge.code }}";
+    const date = document.getElementById('dateSelect').value;
+    const time = document.getElementById('timeSelect').value;
+    const guests = document.getElementById('guestSelect').value;
+    const price = "{{ lounge.price }}";
+
+    window.location.href = `/payment?name=${encodeURIComponent(name)}&airport=${encodeURIComponent(airport)}&date=${encodeURIComponent(date)}&time=${encodeURIComponent(time)}&guests=${encodeURIComponent(guests)}&price=${price}`;
+}
+</script>
+{% endblock %}

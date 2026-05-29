@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="padding: 20px;">
+    <h2>My Bookings</h2>
+    <p style="color: #64748b; font-size: 14px;">Your Upcoming and past reservations</p>
+
+    <div style="margin-top: 20px;">
+        {% for b in bookings %}
+        <div style="background: white; border: 1px solid #e2e8f0; padding: 16px; border-radius: 16px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+            <div style="display:flex; justify-content:space-between; margin-bottom: 8px;">
+                <strong style="font-size: 16px;">{{ b.name }}</strong>
+                <span style="font-size: 11px; background: {{ '#dcfce7' if b.status == 'Confirmed' else '#f1f5f9' }}; color: {{ '#166534' if b.status == 'Confirmed' else '#475569' }}; padding: 4px 8px; border-radius: 6px; font-weight: bold;">
+                    {{ b.status | upper }}
+                </span>
+            </div>
+            <p style="font-size: 13px; color: #64748b; margin: 4px 0;">{{ b.airport }}</p>
+            <div style="font-size: 13px; color: #334155; margin-bottom: 12px;">
+                📅 {{ b.date }} | ⏰ {{ b.time }} | 👤 {{ b.guests }}
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-top: 1px solid #f1f5f9; padding-top: 12px;">
+                <span style="font-weight:bold; color:#5856D6; font-size: 16px;">{{ b.price }}</span>
+                {% if b.status == 'Confirmed' %}
+                <a href="{{ url_for('cancel_booking', name=b.name, airport=b.airport, date=b.date, time=b.time, guests=b.guests, price=b.price) }}" 
+                   style="text-decoration:none; background:#fff1f1; color:#dc2626; border:1px solid #dc2626; padding:6px 16px; border-radius:8px; font-size:12px; font-weight:bold;">
+                   Cancel
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

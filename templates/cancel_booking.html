@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="padding: 20px; font-family: sans-serif;">
+    <h2 style="margin: 0;">Cancel Booking</h2>
+    <p style="color: #64748b; margin-bottom: 20px;">Review your booking before cancelling</p>
+    
+    <div style="background:#f8fafc; padding:20px; border-radius:16px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
+        <p style="font-weight: bold; margin: 0 0 10px 0;">Booking Details</p>
+        <div style="display:flex; justify-content:space-between; margin-bottom: 8px;">
+            <span style="color: #64748b;">Lounge</span>
+            <span style="font-weight: 500;">{{ b.name }}</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-bottom: 8px;">
+            <span style="color: #64748b;">Date</span>
+            <span style="font-weight: 500;">{{ b.date }}</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-bottom: 8px;">
+            <span style="color: #64748b;">Time</span>
+            <span style="font-weight: 500;">{{ b.time }}</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-bottom: 15px;">
+            <span style="color: #64748b;">Guests</span>
+            <span style="font-weight: 500;">{{ b.guests }}</span>
+        </div>
+        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 10px 0;">
+        <div style="display:flex; justify-content:space-between; margin-top: 10px;">
+            <span style="font-weight: bold;">Total Paid</span>
+            <span style="color: #5856D6; font-weight: bold; font-size: 18px;">{{ b.price }}</span>
+        </div>
+    </div>
+    
+    <button style="width:100%; padding:16px; background:#dc2626; color:white; border:none; border-radius:12px; font-weight: bold; font-size: 16px; cursor: pointer;">Confirm Cancellation</button>
+    <a href="{{ url_for('bookings') }}" style="display:block; text-align:center; margin-top:20px; color:#5856D6; text-decoration:none; font-weight: bold;">Keep Booking</a>
+</div>
+{% endblock %}

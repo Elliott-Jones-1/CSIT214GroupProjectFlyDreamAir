@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+<style>
+    h1 { font-size: 26px; font-weight: 800; color: #111; margin-bottom: 4px; padding-top: 10px; }
+    .subtitle { font-size: 13px; color: #8E8E93; margin-bottom: 22px; }
+
+    /* 高级紫金渐变卡片 */
+    .member-card { background: linear-gradient(135deg, #7A78FF 0%, #5856D6 100%); border-radius: 22px; padding: 20px; color: #fff; box-shadow: 0 8px 25px rgba(88,86,214,0.2); margin-bottom: 22px; }
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; }
+    .m-name { font-size: 16px; font-weight: 700; letter-spacing: 0.5px; }
+    .m-id { font-size: 11px; color: #E0E0FF; margin-top: 4px; font-family: monospace; }
+    .badge-gold { background: rgba(255,255,255,0.25); font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .card-bottom { text-align: right; }
+    .pts-val { font-size: 30px; font-weight: 800; line-height: 1; }
+    .pts-lbl { font-size: 11px; color: #E0E0FF; margin-top: 5px; }
+
+    /* 经验进度条样式 */
+    .progress-card { background: #F4F4FF; border-radius: 18px; padding: 16px; border: 1px solid #E0E0FF; margin-bottom: 25px; }
+    .prog-txt { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 10px; color: #111; }
+    .bar-bg { width: 100%; height: 8px; background: #E0E0FF; border-radius: 4px; overflow: hidden; margin-bottom: 10px; }
+    .bar-fill { width: 49%; height: 100%; background: #5856D6; border-radius: 4px; }
+    .prog-tip { font-size: 11px; color: #8E8E93; }
+
+    .sec-title { font-size: 16px; font-weight: 700; margin-bottom: 15px; color: #111; }
+
+    /* 会员权益列表 */
+    .benefit-item { display: flex; align-items: center; gap: 15px; margin-bottom: 14px; background: #fff; padding: 14px; border-radius: 14px; border: 1px solid #f2f2f7; box-shadow: 0 2px 10px rgba(0,0,0,0.01); }
+    .b-icon { width: 42px; height: 42px; background: #F0F0FF; color: #5856D6; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .b-info h4 { font-size: 13px; font-weight: 700; color: #111; }
+    .b-info p { font-size: 11px; color: #8E8E93; margin-top: 3px; }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>Membership</h1>
+<p class="subtitle">Your loyalty status and benefits</p>
+
+<div class="member-card">
+    <div class="card-top">
+        <div>
+            <div class="m-name">Jasper Yao</div>
+            <div class="m-id">ID: FLY-2026-0891</div>
+        </div>
+        <span class="badge-gold">Gold Member</span>
+    </div>
+    <div class="card-bottom">
+        <div class="pts-val">2,450</div>
+        <div class="pts-lbl">Points Available</div>
+    </div>
+</div>
+
+<div class="progress-card">
+    <div class="prog-txt">
+        <span>Progress to Platinum</span>
+        <span style="color:#5856D6;">2,450 / 5,000</span>
+    </div>
+    <div class="bar-bg"><div class="bar-fill"></div></div>
+    <div class="prog-tip"><i class="fa-solid fa-circle-info" style="margin-right:4px; color:#5856D6;"></i> 2,550 more points to reach Platinum</div>
+</div>
+
+<h3 class="sec-title">Exclusive Gold Benefits</h3>
+
+<div class="benefit-item">
+    <div class="b-icon"><i class="fa-solid fa-percent"></i></div>
+    <div class="b-info">
+        <h4>10% Lounge Discount</h4>
+        <p>Applied automatically on all upcoming bookings</p>
+    </div>
+</div>
+
+<div class="benefit-item">
+    <div class="b-icon"><i class="fa-solid fa-bolt"></i></div>
+    <div class="b-info">
+        <h4>Priority Access Pass</h4>
+        <p>Skip lines during peak international transit hours</p>
+    </div>
+</div>
+
+<div class="benefit-item">
+    <div class="b-icon"><i class="fa-solid fa-user-plus"></i></div>
+    <div class="b-info">
+        <h4>Complimentary Guest Allowance</h4>
+        <p>Bring up to 1 travel guest for free per visit</p>
+    </div>
+</div>
+{% endblock %}

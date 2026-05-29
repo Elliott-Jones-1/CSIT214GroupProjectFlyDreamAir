@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #fff; min-height: 80vh;">
+    <div style="text-align: center; margin-top: 20px;">
+        <div style="background: #5856D6; color: white; width: 55px; height: 55px; line-height: 55px; border-radius: 14px; margin: 0 auto; font-size: 28px; font-weight: bold;">F</div>
+        <h2 style="margin: 15px 0 2px 0; font-size: 22px;">FlyDreamAir</h2>
+        <p style="color: #64748b; margin: 0; font-size: 13px;">Lounge Management</p>
+    </div>
+
+    <h2 style="margin: 40px 0 8px 0; font-size: 26px; font-weight: 700;">Welcome back</h2>
+    <p style="color: #64748b; margin: 0 0 30px 0; font-size: 15px;">Sign in to your account</p>
+
+    <form method="POST">
+        <label style="display: block; margin-bottom: 8px; font-size: 14px; color: #333;">Email address</label>
+        <input type="email" placeholder="" style="width: 100%; padding: 14px; border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 20px; background: #f8fafc; box-sizing: border-box;">
+
+        <label style="display: block; margin-bottom: 8px; font-size: 14px; color: #333;">Password</label>
+        <input type="password" placeholder="" style="width: 100%; padding: 14px; border: 1px solid #e2e8f0; border-radius: 12px; background: #f8fafc; box-sizing: border-box;">
+        
+        <div style="text-align: right; margin: 8px 0 30px 0;">
+            <a href="#" style="color: #5856D6; text-decoration: none; font-size: 13px; font-weight: 600;">Forgot password?</a>
+        </div>
+
+        <button type="submit" style="width: 100%; padding: 16px; background: #5856D6; color: white; border: none; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer; margin-bottom: 20px;">
+            Sign in
+        </button>
+    </form>
+
+    <div style="text-align: center; color: #94a3b8; font-size: 12px; margin-bottom: 20px; position: relative;">
+        <span style="background: #fff; padding: 0 10px; position: relative; z-index: 1;">or continue with</span>
+        <div style="border-top: 1px solid #e2e8f0; position: absolute; top: 50%; width: 100%; z-index: 0;"></div>
+    </div>
+
+    <button style="width: 100%; padding: 14px; background: white; border: 1px solid #e2e8f0; border-radius: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; cursor: pointer; margin-bottom: 30px;">
+        <img src="https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png" width="18" style="margin-right: 10px;">
+        Google
+    </button>
+
+    <div style="text-align: center;">
+        <p style="font-size: 14px; color: #475569;">Don't have an account? <a href="{{ url_for('register') }}" style="color: #5856D6; text-decoration: none; font-weight: bold;">Sign up</a></p>
+    </div>
+</div>
+{% endblock %}
